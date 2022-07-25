@@ -16,7 +16,7 @@ while(arrayValuesZeroingCounter < number)   //   1   //Основной цикл
     long[] group = new long[number]; // Каждая группа создаётся как отдельный массив
     long lastCellGroupIndex = 2; // Ограничитель для цикла проверки(деления) числа на предыдущие в текущей группе (то есть временная "длина" массива)
     long FirstIndexGroupValueSearchRelay = 0; // Передатчик(эстафета) из цикла 2 индекса с ненулевым значением ячейки
-    for(long ind = 0; array[FirstIndexGroupValueSearchRelay] == 0 && ind < number; ind++)  //  2   //Этот цикл ищет ненулевое значение исходного массива, что бы задать первый(нулевой) элемент новой группы
+    for(long ind = 0; array[FirstIndexGroupValueSearchRelay] == 0 && ind < number; ind++)  //   2   //Этот цикл ищет ненулевое значение исходного массива, что бы задать первый(нулевой) элемент новой группы
     {
         Console.WriteLine($"TEST 2");
         FirstIndexGroupValueSearchRelay = ind + 1;
@@ -25,14 +25,14 @@ while(arrayValuesZeroingCounter < number)   //   1   //Основной цикл
     group[0] = array[FirstIndexGroupValueSearchRelay]; // Начало текущей(новой) группы
     array[FirstIndexGroupValueSearchRelay] = 0;
     arrayValuesZeroingCounter++;
-    for(long i = 0; i < number; i++)  //  3  //Цикл перебора исходного массива для поиска подходящих значений в группу
+    for(long i = 0; i < number; i++)  //   3   //Цикл перебора исходного массива для поиска подходящих значений в группу
     {
         Console.WriteLine($"TEST 3");
         long groupIndex = 0; // Первый делитель для проверки берётся с нулевого индекса группы, то есть перебор группы идёт слева направо
         if(array[i] != 0) // Проверка на ненулевое значение ячейки для дальнейшей проверки на совместимость с группой
         {
             Console.WriteLine($"TEST 3 1");
-            while(groupIndex < lastCellGroupIndex)  //  4  //Цикл проверки на совместимость с группой(деление на все предыдущие значения в группе)
+            while(groupIndex < lastCellGroupIndex - 1)  //   4   //Цикл проверки на совместимость с группой(деление на все предыдущие значения в группе)
             {
                 Console.WriteLine($"TEST 4");
                 if(array[i] % group[groupIndex] != 0) // Проверка делением, если результат(остаток) не равен 0, то число прошло проверку текущим делителем, далее делитель меняется(на следующий из группы)
@@ -43,7 +43,7 @@ while(arrayValuesZeroingCounter < number)   //   1   //Основной цикл
                     {
                         Console.WriteLine($"TEST 4 2");
                         group[groupIndex] = array[i];
-                        Console.WriteLine($"Test GI yes {groupIndex}");
+                        Console.WriteLine($"Test GI {groupIndex}");
                         lastCellGroupIndex++;
                         array[i] = 0;
                         arrayValuesZeroingCounter++;
@@ -51,18 +51,18 @@ while(arrayValuesZeroingCounter < number)   //   1   //Основной цикл
                 }
                 else // Если остаток равен 0, значит число не подходит в группу, так как оно поделилось на другое число из группы, цикл 4 останавливается и берётся следующее число из исходного массива
                 {
-                    Console.WriteLine($"Test GI no {groupIndex}");
+                    Console.WriteLine($"Test GI {groupIndex} -no");
                     Console.WriteLine($"TEST 4 1 NO");
                     break;
                 }
-                Console.WriteLine($"Test GI after check {groupIndex}");
+                Console.WriteLine($"Test GI {groupIndex} after check and before increment");
                 groupIndex++;
             }
         }
     }
     groupNumber++;
     Console.Write($"Группа {groupNumber}: ");
-    PrintGroup(group, lastCellGroupIndex);   //   НУЖНО ДОДЕЛАТЬ РАСПЕЧАТКУ ГРУПП, ЧТО БЫ ВЫПИСЫВАЛ НЕ ВЕСЬ МАССИВ, А ТОЛЬКО НЕНУЛЕВЫЕ ЗНАЧЕНИЯ (НАПОМИНАЛКА)
+    PrintGroup(group, lastCellGroupIndex);
     Console.WriteLine($"Test LCGI {lastCellGroupIndex}, AVZC {arrayValuesZeroingCounter}");
     Console.WriteLine();
 }
@@ -80,15 +80,13 @@ void FillArray(long[] a)
 
 void PrintGroup(long[] a, long b)
 {
-    Console.Write("[");
-    for(long i = 0; i < b; i++)
+    for(long i = 0; i < b && a[i] != 0; i++)
     {
         Console.Write(a[i]);
-        if(i < b - 1)
+        if(i < b - 1 && a[i + 1] != 0)
             Console.Write(", ");
-        else
-            Console.WriteLine("]");
     }
+    Console.WriteLine();
 }
 
 void TestPrintArray(long[] a, long b)
@@ -103,3 +101,5 @@ void TestPrintArray(long[] a, long b)
             Console.WriteLine("]");
     }
 }
+
+// ПОЧЕМУ ТО НЕ ЗАПОЛНЯЕТ ГРУППЫ ПОЛНОСТЬЮ(А ТОЛЬКО ПЕРВЫЕ 2) И ПЕРЕХОДИТ К НОВОЙ ГРУППЕ
