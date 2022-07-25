@@ -44,7 +44,7 @@ while(arrayValuesZeroingCounter < number)   //   1   //Основной цикл
                         Console.WriteLine($"TEST 4 2");
                         group[groupIndex] = array[i];
                         Console.WriteLine($"Test GI yes {groupIndex}");
-                        //lastCellGroupIndex++;
+                        lastCellGroupIndex++;
                         array[i] = 0;
                         arrayValuesZeroingCounter++;
                     }

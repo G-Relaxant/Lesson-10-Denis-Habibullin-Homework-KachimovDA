@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj": {}
+    "C:\\Users\\user\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj": {}
   },
   "projects": {
-    "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj": {
+    "C:\\Users\\user\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj",
         "projectName": "73",
-        "projectPath": "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj",
-        "packagesPath": "C:\\Users\\G1Sup\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\G1Sup\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\73.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\дз\\Lesson-10-Denis-Habibullin-Homework-KachimovDA\\73\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\G1Sup\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
