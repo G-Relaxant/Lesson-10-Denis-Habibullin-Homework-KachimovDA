@@ -21,7 +21,6 @@ while(arrayValuesZeroingCounter < number)   //   1   //Основной цикл
         Console.WriteLine($"TEST 2");
         FirstIndexGroupValueSearchRelay = ind + 1;
     }
-    //FirstIndexGroupValueSearchRelay++;
     group[0] = array[FirstIndexGroupValueSearchRelay]; // Начало текущей(новой) группы
     array[FirstIndexGroupValueSearchRelay] = 0;
     arrayValuesZeroingCounter++;
@@ -102,4 +101,4 @@ void TestPrintArray(long[] a, long b)
     }
 }
 
-// ПОЧЕМУ ТО НЕ ЗАПОЛНЯЕТ ГРУППЫ ПОЛНОСТЬЮ(А ТОЛЬКО ПЕРВЫЕ 2) И ПЕРЕХОДИТ К НОВОЙ ГРУППЕ
+// ПОЧЕМУ ТО НЕ ЗАПОЛНЯЕТ ГРУППЫ ПОЛНОСТЬЮ(А ТОЛЬКО ПЕРВЫЕ 2 ЯЧЕЙКИ) И ПЕРЕХОДИТ К НОВОЙ ГРУППЕ
