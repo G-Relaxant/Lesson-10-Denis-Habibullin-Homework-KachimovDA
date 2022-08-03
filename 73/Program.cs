@@ -1,4 +1,5 @@
-﻿Console.Write("Введите число от 1 до N: ");
+﻿/*
+Console.Write("Введите число от 1 до N: ");
 long number = long.Parse(Console.ReadLine());
 long[] array = new long[number];
 FillArray(array);
@@ -102,5 +103,75 @@ void TestPrintArray(long[] a, long b)
             Console.WriteLine("]");
     }
 }
-
+*/
 // ПОЧЕМУ ТО НЕ ЗАПОЛНЯЕТ ГРУППЫ ПОЛНОСТЬЮ(А ТОЛЬКО ПЕРВЫЕ 2 ЯЧЕЙКИ) И ПЕРЕХОДИТ К НОВОЙ ГРУППЕ
+
+
+
+//Михаил Меркушов・Преподаватель
+//Доброе утро!
+
+//Увидел вопрос в лс, я бы сделал так:
+void PrintGroups(int[] numbers, int groupsCount)
+{
+for (int i = 0; i < groupsCount; i++)
+{
+Console.Write($"Группа {i + 1}: [");
+for (int j = 1; j < numbers.Length; j++)
+{
+if (numbers[j] == i + 1)
+{
+Console.Write($" {j}");
+}
+}
+Console.WriteLine(" ]");
+}
+}
+//--------------------------------------------------------
+/// <summary>
+/// Метод находит разбиния чисел от 1 до N на группы взаимно простых чисел
+/// </summary>
+/// <param name="numbers">Массив, значениями которого являются номера групп</param>
+/// <param name="groupCount">Количество получившихся групп</param>
+/// <param name="startIdx">Стартовое число для новой группы </param>
+/// <param name="hasNextGroup">Есть ли еще группы (для выхода из рекурсии)</param>
+void GetPrimes(int[] numbers, ref int groupCount, int startIdx = 3, bool hasNextGroup = true)
+{
+if (!hasNextGroup)
+{
+groupCount--;
+return;
+};
+
+int nextGroupId = 0;
+bool isNewGroup = true;
+for (int i = startIdx; i < numbers.Length; i++)
+{
+bool isPrime = true;
+if (numbers[i] == groupCount)
+{
+for (int j = i - 1; j > startIdx - 2; j--)
+{
+if ((numbers[j] == groupCount) && (i % j == 0))
+{
+isPrime = false;
+break;
+}
+}
+}
+
+if (!isPrime)
+{
+  numbers[i] = groupCount + 1;
+  if (isNewGroup)
+  {
+    nextGroupId = i;
+    isNewGroup = false;
+  }
+}
+}
+
+groupCount++;
+
+GetPrimes(numbers, ref groupCount, startIdx = nextGroupId + 1, nextGroupId != 0);
+}
